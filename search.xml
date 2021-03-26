@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Bladed模型线性化</title>
+      <link href="2021/03/24/Bladed-linear/"/>
+      <url>2021/03/24/Bladed-linear/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bladed软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bladed </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文件批量重命名bat实现</title>
+      <link href="2021/03/24/%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8Dbat%E5%AE%9E%E7%8E%B0/"/>
+      <url>2021/03/24/%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8Dbat%E5%AE%9E%E7%8E%B0/</url>
+      
+        <content type="html"><![CDATA[<h3 id="命令行程序BAT简介"><a href="#命令行程序BAT简介" class="headerlink" title="命令行程序BAT简介"></a>命令行程序BAT简介</h3><p>是一种基于DOS命令的编程方式，作为批处理操作非常方便，文件扩展名通常为.bat，因此也可以称为BAT编程。</p><h3 id="批量对文件进行重命名"><a href="#批量对文件进行重命名" class="headerlink" title="批量对文件进行重命名"></a>批量对文件进行重命名</h3><p>亲测有效！</p><ol><li>新建记事本文件.txt;</li><li>复制以下全部代码，保存文件；</li><li>将文件名改为“批量重命名-替换文件或者文件夹的字符串.bat”；</li><li>把此文件拷贝到需要重命名的文件夹下（建议先备份原始文件，防止误操作造成丢失）；</li><li>双击运行，根据提示输入相应的名字；</li><li>完成！</li></ol><pre class="line-numbers language-Batch" data-language="Batch"><code class="language-Batch">@echo off:menuset yn&#x3D;Qclsecho ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~echo.echo 当前目录: %~dp0echo.echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~echo.echo 【R】文件名字符替换echo 【X】文件名字符截取后添加echo 【Q】退出echo.echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~set &#x2F;P yn&#x3D;请选择：if &#x2F;i %yn%&#x3D;&#x3D;R goto goRenif &#x2F;i %yn%&#x3D;&#x3D;X goto goAddif &#x2F;i %yn%&#x3D;&#x3D;Q goto goEndexit:goRenecho 如匹配 [H][01].sc.[pop].tv 输入格式： [?][??].sc.[*].tvecho 如匹配 [H][01].sc.[pop].tv 输入格式： [H][??].sc.[pop].tvecho ? 代表匹配单个字符 * 代表匹配多个字符set &#x2F;p n&#x3D;匹配格式:set &#x2F;p o&#x3D;需要替换的字符:set &#x2F;p t&#x3D;把%o%替换为:setlocal enabledelayedexpansion for %%i in (&quot;%n%&quot;) do (    set old&#x3D;%%i    set &quot;new&#x3D;!old:%o%&#x3D;%t%!&quot;    echo !old! ^&gt; !new!)endlocalset &#x2F;p yn&#x3D;确认 y:if &#x2F;i not %yn%&#x3D;&#x3D;y goto menusetlocal enabledelayedexpansion for %%i in (&quot;%n%&quot;) do (    set old&#x3D;%%i    set &quot;new&#x3D;!old:%o%&#x3D;%t%!&quot;    ren &quot;!old!&quot; &quot;!new!&quot;)endlocalgoto menu:goAddecho 输入文件名匹配格式 如查找 [H][01].sc.[p o p].tv 输入 [?][??].sc.[*].tvset &#x2F;p n&#x3D;匹配格式:set &#x2F;p x&#x3D;从文件名开始处截取的数量:set &#x2F;p a&#x3D;截取之后添加的字符:setlocal enabledelayedexpansion for %%i in (&quot;%n%&quot;) do (    set old&#x3D;%%i    set &quot;new&#x3D;!old:~0,%x%!%a%&quot;    echo !old! ^&gt; !new!)endlocalset &#x2F;p yn&#x3D;确认 y:if &#x2F;i not %yn%&#x3D;&#x3D;y goto menusetlocal enabledelayedexpansion for %%i in (&quot;%n%&quot;) do (    set old&#x3D;%%i    set &quot;new&#x3D;!old:~0,%x%!%a%&quot;   ren &quot;!old!&quot; &quot;!new!&quot;)endlocalgoto menu:goEndexit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>转自 CSDN [mycoloraa]</p><p>文章地址：<a href="https://blog.csdn.net/mycoloraa/article/details/102694269">https://blog.csdn.net/mycoloraa/article/details/102694269</a></p><hr><p><small>（最后修订日期：2021-03-22）</small></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> BAT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>命令行程序.bat文件编程</title>
+      <link href="2021/03/22/Bat%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E6%95%B4%E7%90%86/"/>
+      <url>2021/03/22/Bat%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E6%95%B4%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h3 id="命令行程序BAT简介"><a href="#命令行程序BAT简介" class="headerlink" title="命令行程序BAT简介"></a>命令行程序BAT简介</h3><p>是一种基于DOS命令的编程方式，作为批处理操作非常方便，文件扩展名通常为.bat，因此也可以称为BAT编程。</p><h3 id="文件批量拷贝"><a href="#文件批量拷贝" class="headerlink" title="文件批量拷贝"></a>文件批量拷贝</h3><h3 id="开机启动常用办公软件"><a href="#开机启动常用办公软件" class="headerlink" title="开机启动常用办公软件"></a>开机启动常用办公软件</h3><hr><p><small>（最后修订日期：2021-03-22）</small></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>matlabNote</title>
+      <link href="2021/03/20/NI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86matlab%E6%96%B9%E6%B3%95/"/>
+      <url>2021/03/20/NI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86matlab%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>123321</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> matlab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客数据</title>
+      <link href="2021/03/20/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE/"/>
+      <url>2021/03/20/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="社交平台账号"><a href="#社交平台账号" class="headerlink" title="社交平台账号"></a>社交平台账号</h2><p>GitHub ：github.com/3BUleb</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Matlab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="2018/09/07/hello-world/"/>
+      <url>2018/09/07/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Typora </tag>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
