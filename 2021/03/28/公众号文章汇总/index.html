@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="文件批量重命名bat实现, 三卜工作室">
+    <meta name="keywords" content="公众号文章汇总, 三卜工作室">
     <meta name="description" content="浩瀚网海中的自留小岛">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>文件批量重命名bat实现 | 三卜工作室</title>
+    <title>公众号文章汇总 | 三卜工作室</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">文件批量重命名bat实现</h1>
+                    <h1 class="description center-align post-title">公众号文章汇总</h1>
                 </div>
             </div>
         </div>
@@ -346,8 +346,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/bat/">
-                                <span class="chip bg-color">bat</span>
+                            <a href="/tags/Bladed/">
+                                <span class="chip bg-color">Bladed</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%A3%8E%E7%94%B5/">
+                                <span class="chip bg-color">风电</span>
                             </a>
                         
                     </div>
@@ -358,8 +362,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/bat/" class="post-category">
-                                bat
+                            <a href="/categories/%E5%85%AC%E4%BC%97%E5%8F%B7/" class="post-category">
+                                公众号
                             </a>
                         
                     </div>
@@ -371,7 +375,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-24
+                    2021-03-28
                 </div>
                 
 
@@ -395,103 +399,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="命令行程序BAT简介"><a href="#命令行程序BAT简介" class="headerlink" title="命令行程序BAT简介"></a>命令行程序BAT简介</h3><p>是一种基于DOS命令的编程方式，作为批处理操作非常方便，文件扩展名通常为.bat，因此也可以称为BAT编程。</p>
-<h3 id="批量对文件进行重命名"><a href="#批量对文件进行重命名" class="headerlink" title="批量对文件进行重命名"></a>批量对文件进行重命名</h3><p>亲测有效！</p>
-<ol>
-<li>新建记事本文件.txt;</li>
-<li>复制以下全部代码，保存文件；</li>
-<li>将文件名改为“批量重命名-替换文件或者文件夹的字符串.bat”；</li>
-<li>把此文件拷贝到需要重命名的文件夹下（建议先备份原始文件，防止误操作造成丢失）；</li>
-<li>双击运行，根据提示输入相应的名字；</li>
-<li>完成！</li>
-</ol>
-<pre class="line-numbers language-Batch" data-language="Batch"><code class="language-Batch">@echo off
-:menu
-set yn&#x3D;Q
-cls
-echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo.
-echo 当前目录: %~dp0
-echo.
-echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo.
-echo 【R】文件名字符替换
-echo 【X】文件名字符截取后添加
-echo 【Q】退出
-echo.
-echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-set &#x2F;P yn&#x3D;请选择：
-if &#x2F;i %yn%&#x3D;&#x3D;R goto goRen
-if &#x2F;i %yn%&#x3D;&#x3D;X goto goAdd
-if &#x2F;i %yn%&#x3D;&#x3D;Q goto goEnd
-exit
-:goRen
-echo 如匹配 [H][01].sc.[pop].tv 输入格式： [?][??].sc.[*].tv
-echo 如匹配 [H][01].sc.[pop].tv 输入格式： [H][??].sc.[pop].tv
-echo ? 代表匹配单个字符 * 代表匹配多个字符
-set &#x2F;p n&#x3D;匹配格式:
-set &#x2F;p o&#x3D;需要替换的字符:
-set &#x2F;p t&#x3D;把%o%替换为:
-setlocal enabledelayedexpansion 
-for %%i in (&quot;%n%&quot;) do (
-    set old&#x3D;%%i
-    set &quot;new&#x3D;!old:%o%&#x3D;%t%!&quot;
-    echo !old! ^&gt; !new!
-)
-endlocal
-
-set &#x2F;p yn&#x3D;确认 y:
-if &#x2F;i not %yn%&#x3D;&#x3D;y goto menu
-
-setlocal enabledelayedexpansion 
-for %%i in (&quot;%n%&quot;) do (
-    set old&#x3D;%%i
-    set &quot;new&#x3D;!old:%o%&#x3D;%t%!&quot;
-    ren &quot;!old!&quot; &quot;!new!&quot;
-)
-endlocal
-
-goto menu
-
-:goAdd
-echo 输入文件名匹配格式 如查找 [H][01].sc.[p o p].tv 输入 [?][??].sc.[*].tv
-set &#x2F;p n&#x3D;匹配格式:
-set &#x2F;p x&#x3D;从文件名开始处截取的数量:
-set &#x2F;p a&#x3D;截取之后添加的字符:
-setlocal enabledelayedexpansion 
-for %%i in (&quot;%n%&quot;) do (
-    set old&#x3D;%%i
-    set &quot;new&#x3D;!old:~0,%x%!%a%&quot;
-    echo !old! ^&gt; !new!
-)
-endlocal
-
-set &#x2F;p yn&#x3D;确认 y:
-if &#x2F;i not %yn%&#x3D;&#x3D;y goto menu
-
-setlocal enabledelayedexpansion 
-for %%i in (&quot;%n%&quot;) do (
-    set old&#x3D;%%i
-    set &quot;new&#x3D;!old:~0,%x%!%a%&quot;
-   ren &quot;!old!&quot; &quot;!new!&quot;
-)
-endlocal
-
-goto menu
-
-:goEnd
-exit
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<p>转自 CSDN [mycoloraa]</p>
-<p>文章地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mycoloraa/article/details/102694269">https://blog.csdn.net/mycoloraa/article/details/102694269</a></p>
+                <h2 id="Bladed学习笔记"><a href="#Bladed学习笔记" class="headerlink" title="Bladed学习笔记"></a>Bladed学习笔记</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NzY5NjMwNg==&amp;mid=2247484074&amp;idx=1&amp;sn=a705666e1a482f948adde0094e1b53ee&amp;chksm=fc980c77cbef8561a8bd448c74116ca6b51336398a29e0f9b86144dcbc0ee521051f8ec79fd6&token=1842874197&lang=zh_CN#rd">Bladed V4.11网络研讨会资料</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NzY5NjMwNg==&amp;mid=2247484133&amp;idx=1&amp;sn=b7c290c9ccc95a843d0ece0d71928c84&amp;chksm=fc980c38cbef852e29c7d79f78c6faf9a9a9f052ae20958487b59f1c19846dfe74a2c94222d6&token=1842874197&lang=zh_CN#rd">Bladed故障模拟方法介绍</a><br>包括面板故障模拟和外部控制器实现配置</p>
+<h2 id="风电笔记"><a href="#风电笔记" class="headerlink" title="风电笔记"></a>风电笔记</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NzY5NjMwNg==&amp;mid=2247483977&amp;idx=1&amp;sn=689a78f189d3298440b5bb4adaca51b9&amp;chksm=fc980c94cbef8582fe5289dda543697b507ed3cc5aa34371c200e196e4709bd2c527c3bc9553&token=1842874197&lang=zh_CN#rd">登高证、电工证考试资料</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NzY5NjMwNg==&amp;mid=2247483966&amp;idx=1&amp;sn=b30aeb0f4ebd2928ab5e7d7650ecbf2a&amp;chksm=fc980ce3cbef85f5ba5021a9441c2bac321892910bc17fb672d7f7f58c73fb0b279ef984db7d&token=1842874197&lang=zh_CN#rd">2020年风能大会演讲资料及视频分享</a></p>
 <hr>
-<p><small>（最后修订日期：2021-03-22）</small></p>
+<p><small>（最后修订日期：2021-03-28）</small></p>
 
                 
             </div>
@@ -518,7 +431,7 @@ exit
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://3BUleb.github.io/2021/03/24/%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8Dbat%E5%AE%9E%E7%8E%B0/">https://3BUleb.github.io/2021/03/24/%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8Dbat%E5%AE%9E%E7%8E%B0/</a>
+                    <a href="https://3BUleb.github.io/2021/03/28/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">https://3BUleb.github.io/2021/03/28/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,8 +469,12 @@ exit
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/bat/">
-                                    <span class="chip bg-color">bat</span>
+                                <a href="/tags/Bladed/">
+                                    <span class="chip bg-color">Bladed</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%A3%8E%E7%94%B5/">
+                                    <span class="chip bg-color">风电</span>
                                 </a>
                             
                         </div>
@@ -729,9 +646,64 @@ exit
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/03/28/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="公众号文章汇总">
+                        
+                        <span class="card-title">公众号文章汇总</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%AC%E4%BC%97%E5%8F%B7/" class="post-category">
+                                    公众号
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Bladed/">
+                        <span class="chip bg-color">Bladed</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A3%8E%E7%94%B5/">
+                        <span class="chip bg-color">风电</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/03/24/Bladed-linear/">
                     <div class="card-image">
@@ -749,9 +721,9 @@ exit
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -769,55 +741,6 @@ exit
                     
                     <a href="/tags/Bladed/">
                         <span class="chip bg-color">Bladed</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/22/Bat%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E6%95%B4%E7%90%86/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="命令行程序.bat文件编程">
-                        
-                        <span class="card-title">命令行程序.bat文件编程</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/bat/" class="post-category">
-                                    bat
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/bat/">
-                        <span class="chip bg-color">bat</span>
                     </a>
                     
                 </div>
