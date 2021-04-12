@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Python将静态图片制作成gif代码</title>
+      <link href="2021/04/10/Py%E5%8A%A8%E5%9B%BE%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/"/>
+      <url>2021/04/10/Py%E5%8A%A8%E5%9B%BE%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<p>在2019岁末2020年初之际，参考网上资料，写了一个基于Python语言实现静态图片文件生成.gif动图功能的代码，算是年终总结，不知会不会被和谐。</p><p>源码如下:</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> imageio<span class="token keyword">def</span> <span class="token function">create_gif</span><span class="token punctuation">(</span>gif_name<span class="token punctuation">,</span> duration<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    frames <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        frames<span class="token punctuation">.</span>append<span class="token punctuation">(</span>imageio<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">".jpg"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    imageio<span class="token punctuation">.</span>mimsave<span class="token punctuation">(</span>gif_name<span class="token punctuation">,</span> frames<span class="token punctuation">,</span> <span class="token string">'GIF'</span><span class="token punctuation">,</span> duration<span class="token operator">=</span>duration<span class="token punctuation">)</span>    <span class="token keyword">return</span><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    gif_name <span class="token operator">=</span> <span class="token string">'test.gif'</span>    duration <span class="token operator">=</span> <span class="token number">0.9</span>    create_gif<span class="token punctuation">(</span>gif_name<span class="token punctuation">,</span> duration<span class="token punctuation">)</span><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>将原始素材按照顺序，命名为“hello1.jpg”，“hello2.jpg”……</p><p>运行，就OK啦</p><p>效果是这样的：</p><p><img src="/medias/PicBed/640.gif" alt="640"></p><hr><p><small>（最后修订日期：2021-04-10）</small></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 万物皆可coding </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>公众号文章汇总</title>
       <link href="2021/03/28/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/"/>
       <url>2021/03/28/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/</url>
@@ -106,31 +131,6 @@
     
     
     <entry>
-      <title>博客数据</title>
-      <link href="2021/03/20/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE%E6%B1%87%E6%80%BB/"/>
-      <url>2021/03/20/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE%E6%B1%87%E6%80%BB/</url>
-      
-        <content type="html"><![CDATA[<h2 id="社交平台账号"><a href="#社交平台账号" class="headerlink" title="社交平台账号"></a>社交平台账号</h2><p>GitHub ：github.com/3BUleb</p><hr><p><small>（最后修订日期：2021-03-22）</small></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> hexo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>matlabNote</title>
       <link href="2021/03/20/NI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86matlab%E6%96%B9%E6%B3%95/"/>
       <url>2021/03/20/NI%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86matlab%E6%96%B9%E6%B3%95/</url>
@@ -156,11 +156,36 @@
     
     
     <entry>
+      <title>博客数据</title>
+      <link href="2021/03/20/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE%E6%B1%87%E6%80%BB/"/>
+      <url>2021/03/20/%E5%8D%9A%E5%AE%A2%E6%95%B0%E6%8D%AE%E6%B1%87%E6%80%BB/</url>
+      
+        <content type="html"><![CDATA[<h2 id="社交平台账号"><a href="#社交平台账号" class="headerlink" title="社交平台账号"></a>社交平台账号</h2><p>GitHub ：github.com/3BUleb</p><hr><p><small>（最后修订日期：2021-03-22）</small></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo命令</title>
       <link href="2021/03/07/Hexo%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"/>
       <url>2021/03/07/Hexo%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><hr><p><small>（最后修订日期：2021-03-22）</small></p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="生成静态"><a href="#生成静态" class="headerlink" title="生成静态"></a>生成静态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><hr><p><small>（最后修订日期：2021-03-22）</small></p>]]></content>
       
       
       <categories>
