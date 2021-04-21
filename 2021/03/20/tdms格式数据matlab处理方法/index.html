@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python将静态图片制作成gif代码, 三卜工作室">
+    <meta name="keywords" content="扩展名TDMS格式数据文件matlab处理方法, 三卜工作室">
     <meta name="description" content="浩瀚网海中的孤独岛礁">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python将静态图片制作成gif代码 | 三卜工作室</title>
+    <title>扩展名TDMS格式数据文件matlab处理方法 | 三卜工作室</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python将静态图片制作成gif代码</h1>
+                    <h1 class="description center-align post-title">扩展名TDMS格式数据文件matlab处理方法</h1>
                 </div>
             </div>
         </div>
@@ -346,8 +346,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
+                            <a href="/tags/matlab/">
+                                <span class="chip bg-color">matlab</span>
+                            </a>
+                        
+                            <a href="/tags/tdms/">
+                                <span class="chip bg-color">tdms</span>
                             </a>
                         
                     </div>
@@ -358,8 +362,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B8%87%E7%89%A9%E7%9A%86%E5%8F%AFcoding/" class="post-category">
-                                万物皆可coding
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" class="post-category">
+                                数据处理
                             </a>
                         
                     </div>
@@ -371,7 +375,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-10
+                    2021-03-20
                 </div>
                 
 
@@ -395,31 +399,151 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在2019岁末2020年初之际，参考网上资料，写了一个基于Python语言实现静态图片文件生成.gif动图功能的代码，算是年终总结，不知会不会被和谐。</p>
-<p>源码如下:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> imageio
+                <h3 id="matlab函数"><a href="#matlab函数" class="headerlink" title="matlab函数"></a>matlab函数</h3><p>matlab官网提供了两个.m函数，用于解析原始数据，并生成一个对应的mat文件。</p>
+<h4 id="convertTMDS-m"><a href="#convertTMDS-m" class="headerlink" title="convertTMDS.m"></a>convertTMDS.m</h4><pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token keyword">function</span> <span class="token punctuation">[</span>ConvertedData<span class="token punctuation">,</span>ConvertVer<span class="token punctuation">,</span>ChanNames<span class="token punctuation">,</span>GroupNames<span class="token punctuation">,</span>ci<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">convertTDMS</span><span class="token punctuation">(</span>varargin<span class="token punctuation">)</span>
+<span class="token comment">%Function to load LabView TDMS data file(s) into variables in the MATLAB workspace.</span>
+<span class="token comment">%An *.MAT file can also be created.  If called with one input, the user selects</span>
+<span class="token comment">%a data file.</span>
+%
+<span class="token comment">%   TDMS format is based on information provided by National Instruments at:</span>
+<span class="token comment">%   http://zone.ni.com/devzone/cda/tut/p/id/5696</span>
+%
+<span class="token comment">% [ConvertedData,ConvertVer,ChanNames]=convertTDMS(SaveConvertedFile,filename)</span>
+%
+<span class="token comment">%       Inputs:</span>
+<span class="token comment">%               SaveConvertedFile (required) - Logical flag (true/false) that</span>
+<span class="token comment">%                 determines whether a MAT file is created.  The MAT file's name</span>
+<span class="token comment">%                 is the same as 'filename' except that the 'TDMS' file extension is</span>
+<span class="token comment">%                 replaced with 'MAT'.  The MAT file is saved in the same folder</span>
+<span class="token comment">%                 and will overwrite an existing file without warning.  The</span>
+<span class="token comment">%                 MAT file contains all the output variables.</span>
+%
+<span class="token comment">%               filename (optional) - Filename (fully defined) to be converted.</span>
+<span class="token comment">%                 If not supplied, the user is provided a 'File Open' dialog box</span>
+<span class="token comment">%                 to navigate to a file.  Can be a cell array of files for bulk</span>
+<span class="token comment">%                 conversion.</span>
+%
+<span class="token comment">%       Outputs:</span>
+<span class="token comment">%               ConvertedData (required) - Structure of all of the data objects.</span>
+<span class="token comment">%               ConvertVer (optional) - Version number of this function.</span>
+<span class="token comment">%               ChanNames (optional) - Cell array of channel names</span>
+<span class="token comment">%               GroupNames (optional) - Cell array of group names</span>
+<span class="token comment">%               ci (optional) - Structure of the channel index (an index to</span>
+<span class="token comment">%                   where all of the information for a channel resides in a</span>
+<span class="token comment">%                   file.</span>
+%
+%
+<span class="token comment">%'ConvertedData' is a structure with 'FileName', 'FileFolder', 'SegTDMSVerNum',</span>
+<span class="token comment">%'NumOfSegments' and 'Data' fields'. The 'Data' field is a structure.</span>
+%
+<span class="token comment">%'ConvertedData.SegTDMSVerNum' is a vector of the TDMS version number for each</span>
+<span class="token comment">%segment.</span>
+%
+<span class="token comment">%'ConvertedData.Data' is a structure with 'Root' and 'MeasuredData' fields.</span>
+%
+<span class="token comment">%'ConvertedData.Data.Root' is a structure with 'Name' and 'Property' fields.</span>
+<span class="token comment">%The 'Property' field is also a structure; it contains all the specified properties</span>
+<span class="token comment">%(1 entry for each 'Property) for the 'Root' group. For each 'Property' there are</span>
+<span class="token comment">%'Name' and 'Value' fields. To display a list of all the property names, input</span>
+<span class="token comment">%'&#123;ConvertedData.Data.Root.Property.Name&#125;'' in the Command Window.</span>
+%
+<span class="token comment">%'ConvertedData.Data.MeasuredData' is a structure containing all the channel/group</span>
+<span class="token comment">%information. For each index (for example, 'ConvertedData.Data.MeasuredData(1)'),</span>
+<span class="token comment">%there are 'Name', 'Data' and 'Property' fields.  The list of channel names can</span>
+<span class="token comment">%be displayed by typing 'ChanNames' in the Command Window.  Similarly, the list</span>
+<span class="token comment">%of group names can be displayed by typing 'GroupNames' in the Command Window.</span>
+<span class="token comment">%The 'Property' field is also a structure; it contains all the specified properties</span>
+<span class="token comment">%for that index (1 entry in the structure for each 'Property'). Any LabView waveform</span>
+<span class="token comment">%attributes ('wf_start_time', 'wf_start_offset', 'wf_increment' and 'wf_samples') that</span>
+<span class="token comment">%may exist are also included in the properties. For each 'Property' there are 'Name'</span>
+<span class="token comment">%and 'Value' fields.  To display a list of all the property names, input</span>
+<span class="token comment">%'&#123;ConvertedData.Data.MeasuredData(#).Property.Name&#125;'' in the Command Window</span>
+<span class="token comment">%where '#' is the index of interest.</span>
+%
+<span class="token comment">%If you recieve an error that DAQmxRaw data cannot be converted, this is due</span>
+<span class="token comment">%to the details on parsing this data type not being published by NI.  the</span>
+<span class="token comment">%work around is to use a VI that reads in the data file and then writes it</span>
+<span class="token comment">%to a new file.  See: https://decibel.ni.com/content/docs/DOC-32817</span>
+%
+<span class="token comment">%  See Also: simpleconvertTDMS</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">def</span> <span class="token function">create_gif</span><span class="token punctuation">(</span>gif_name<span class="token punctuation">,</span> duration<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    frames <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        frames<span class="token punctuation">.</span>append<span class="token punctuation">(</span>imageio<span class="token punctuation">.</span>imread<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">".jpg"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    imageio<span class="token punctuation">.</span>mimsave<span class="token punctuation">(</span>gif_name<span class="token punctuation">,</span> frames<span class="token punctuation">,</span> <span class="token string">'GIF'</span><span class="token punctuation">,</span> duration<span class="token operator">=</span>duration<span class="token punctuation">)</span>
-    <span class="token keyword">return</span>
 
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    gif_name <span class="token operator">=</span> <span class="token string">'test.gif'</span>
-    duration <span class="token operator">=</span> <span class="token number">0.9</span>
-    create_gif<span class="token punctuation">(</span>gif_name<span class="token punctuation">,</span> duration<span class="token punctuation">)</span>
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="simpleConvertTDMS-m"><a href="#simpleConvertTDMS-m" class="headerlink" title="simpleConvertTDMS.m"></a>simpleConvertTDMS.m</h4><pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token keyword">function</span> <span class="token punctuation">[</span>ConvertedData<span class="token punctuation">,</span>ConvertVer<span class="token punctuation">,</span>ChanNames<span class="token punctuation">,</span>GroupNames<span class="token punctuation">,</span>ci<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">simpleConvertTDMS</span><span class="token punctuation">(</span>varargin<span class="token punctuation">)</span>
+<span class="token comment">%Function to load LabView TDMS data file(s) into variables in the MATLAB workspace.</span>
+<span class="token comment">%An *.MAT file can also be created.  If called with one input, the user selects</span>
+<span class="token comment">%a data file.</span>
+%
+<span class="token comment">%   TDMS format is based on information provided by National Instruments at:</span>
+<span class="token comment">%   http://zone.ni.com/devzone/cda/tut/p/id/5696</span>
+%
+<span class="token comment">% [ConvertedData,ConvertVer,ChanNames]=convertTDMS(SaveConvertedFile,filename)</span>
+%
+<span class="token comment">%       Inputs:</span>
+<span class="token comment">%               SaveConvertedFile (required) - Logical flag (true/false) that</span>
+<span class="token comment">%                 determines whether a MAT file is created.  The MAT file's name</span>
+<span class="token comment">%                 is the same as 'filename' except that the 'TDMS' file extension is</span>
+<span class="token comment">%                 replaced with 'MAT'.  The MAT file is saved in the same folder</span>
+<span class="token comment">%                 and will overwrite an existing file without warning.  The</span>
+<span class="token comment">%                 MAT file contains all the output variables.</span>
+%
+<span class="token comment">%               filename (optional) - Filename (fully defined) to be converted.</span>
+<span class="token comment">%                 If not supplied, the user is provided a 'File Open' dialog box</span>
+<span class="token comment">%                 to navigate to a file.  Can be a cell array of files for bulk</span>
+<span class="token comment">%                 conversion.</span>
+%
+<span class="token comment">%       Outputs:</span>
+<span class="token comment">%               ConvertedData (required) - Structure of all of the data objects.</span>
+<span class="token comment">%               ConvertVer (optional) - Version number of this function.</span>
+<span class="token comment">%               ChanNames (optional) - Cell array of channel names</span>
+<span class="token comment">%               GroupNames (optional) - Cell array of group names</span>
+<span class="token comment">%               ci (optional) - Structure of the channel index (an index to</span>
+<span class="token comment">%                   where all of the information for a channel resides in a</span>
+<span class="token comment">%                   file.</span>
+%
+%
+<span class="token comment">%'ConvertedData' is a structure with 'FileName', 'FileFolder', 'SegTDMSVerNum',</span>
+<span class="token comment">%'NumOfSegments' and 'Data' fields'. The 'Data' field is a structure.</span>
+%
+<span class="token comment">%'ConvertedData.SegTDMSVerNum' is a vector of the TDMS version number for each</span>
+<span class="token comment">%segment.</span>
+%
+<span class="token comment">%'ConvertedData.Data' is a structure with 'Root' and 'MeasuredData' fields.</span>
+%
+<span class="token comment">%'ConvertedData.Data.Root' is a structure with 'Name' and 'Property' fields.</span>
+<span class="token comment">%The 'Property' field is also a structure; it contains all the specified properties</span>
+<span class="token comment">%(1 entry for each 'Property) for the 'Root' group. For each 'Property' there are</span>
+<span class="token comment">%'Name' and 'Value' fields. To display a list of all the property names, input</span>
+<span class="token comment">%'&#123;ConvertedData.Data.Root.Property.Name&#125;'' in the Command Window.</span>
+%
+<span class="token comment">%'ConvertedData.Data.MeasuredData' is a structure containing all the channel/group</span>
+<span class="token comment">%information. For each index (for example, 'ConvertedData.Data.MeasuredData(1)'),</span>
+<span class="token comment">%there are 'Name', 'Data' and 'Property' fields.  The list of channel names can</span>
+<span class="token comment">%be displayed by typing 'ChanNames' in the Command Window.  Similarly, the list</span>
+<span class="token comment">%of group names can be displayed by typing 'GroupNames' in the Command Window.</span>
+<span class="token comment">%The 'Property' field is also a structure; it contains all the specified properties</span>
+<span class="token comment">%for that index (1 entry in the structure for each 'Property'). Any LabView waveform</span>
+<span class="token comment">%attributes ('wf_start_time', 'wf_start_offset', 'wf_increment' and 'wf_samples') that</span>
+<span class="token comment">%may exist are also included in the properties. For each 'Property' there are 'Name'</span>
+<span class="token comment">%and 'Value' fields.  To display a list of all the property names, input</span>
+<span class="token comment">%'&#123;ConvertedData.Data.MeasuredData(#).Property.Name&#125;'' in the Command Window</span>
+<span class="token comment">%where '#' is the index of interest.</span>
+%
+<span class="token comment">%If you recieve an error that DAQmxRaw data cannot be converted, this is due</span>
+<span class="token comment">%to the details on parsing this data type not being published by NI.  the</span>
+<span class="token comment">%work around is to use a VI that reads in the data file and then writes it</span>
+<span class="token comment">%to a new file.  See: https://decibel.ni.com/content/docs/DOC-32817</span>
+%
+<span class="token comment">%  See Also: simpleconvertTDMS</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>将原始素材按照顺序，命名为“hello1.jpg”，“hello2.jpg”……</p>
-<p>运行，就OK啦</p>
-<p>效果是这样的：</p>
-<p><img src="/medias/PicBed/640.gif" alt="640"></p>
-<hr>
-<p><small>（最后修订日期：2021-04-10）</small></p>
+
+
+
+
+<h4 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h4><p>matlab官网： <a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/matlabcentral/fileexchange/44206-converttdms-v10">https://ww2.mathworks.cn/matlabcentral/fileexchange/44206-converttdms-v10</a></p>
+<p>GitHub： <a target="_blank" rel="noopener" href="https://github.com/humphreysb/ConvertTDMS">https://github.com/humphreysb/ConvertTDMS</a></p>
+<h3 id="示例应用"><a href="#示例应用" class="headerlink" title="示例应用"></a>示例应用</h3><hr>
+<p><small>（最后修订日期：2021-04-22）</small></p>
 
                 
             </div>
@@ -446,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://3bstudio.top/2021/04/10/Py%E5%8A%A8%E5%9B%BE%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/">https://3bstudio.top/2021/04/10/Py%E5%8A%A8%E5%9B%BE%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/</a>
+                    <a href="https://3bstudio.top/2021/03/20/tdms%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AEmatlab%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">https://3bstudio.top/2021/03/20/tdms%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AEmatlab%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -484,8 +608,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
+                                <a href="/tags/matlab/">
+                                    <span class="chip bg-color">matlab</span>
+                                </a>
+                            
+                                <a href="/tags/tdms/">
+                                    <span class="chip bg-color">tdms</span>
                                 </a>
                             
                         </div>
@@ -657,18 +785,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/10/Py%E5%8A%A8%E5%9B%BE%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/">
+                <a href="/2021/03/22/Bat%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B%E6%95%B4%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Python将静态图片制作成gif代码">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="命令行程序.bat文件编程">
                         
-                        <span class="card-title">Python将静态图片制作成gif代码</span>
+                        <span class="card-title">命令行程序.bat文件编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -678,27 +805,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B8%87%E7%89%A9%E7%9A%86%E5%8F%AFcoding/" class="post-category">
-                                    万物皆可coding
+                            <a href="/categories/bat/" class="post-category">
+                                    bat
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/bat/">
+                        <span class="chip bg-color">bat</span>
                     </a>
                     
                 </div>
@@ -712,13 +838,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/28/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">
+                <a href="/2021/03/07/Hexo%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="公众号文章汇总">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Hexo命令">
                         
-                        <span class="card-title">公众号文章汇总</span>
+                        <span class="card-title">Hexo命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -729,14 +855,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%AC%E4%BC%97%E5%8F%B7/" class="post-category">
-                                    公众号
+                            <a href="/categories/hexo/" class="post-category">
+                                    hexo
                                 </a>
                             
                             
@@ -746,12 +872,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Bladed/">
-                        <span class="chip bg-color">Bladed</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%A3%8E%E7%94%B5/">
-                        <span class="chip bg-color">风电</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
