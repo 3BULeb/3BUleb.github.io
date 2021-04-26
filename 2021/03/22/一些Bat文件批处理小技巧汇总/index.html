@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="typora的流程图、时序图、甘特图 示例, 三卜工作室">
+    <meta name="keywords" content="命令行程序.bat文件编程, 三卜工作室">
     <meta name="description" content="浩瀚网海中的孤独岛礁">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>typora的流程图、时序图、甘特图 示例 | 三卜工作室</title>
+    <title>命令行程序.bat文件编程 | 三卜工作室</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">typora的流程图、时序图、甘特图 示例</h1>
+                    <h1 class="description center-align post-title">命令行程序.bat文件编程</h1>
                 </div>
             </div>
         </div>
@@ -346,8 +346,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/typora/">
-                                <span class="chip bg-color">typora</span>
+                            <a href="/tags/bat/">
+                                <span class="chip bg-color">bat</span>
                             </a>
                         
                     </div>
@@ -358,8 +358,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%94%BB%E5%9B%BE/" class="post-category">
-                                程序画图
+                            <a href="/categories/bat/" class="post-category">
+                                bat
                             </a>
                         
                     </div>
@@ -371,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-03-22
                 </div>
                 
 
@@ -395,213 +395,104 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="基于typora的流程图、时序图、甘特图代码示例"><a href="#基于typora的流程图、时序图、甘特图代码示例" class="headerlink" title="基于typora的流程图、时序图、甘特图代码示例"></a>基于typora的流程图、时序图、甘特图代码示例</h3><p>转自<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/48b558e3035d9a7f38c09aeb.html">百度</a></p>
-<h2 id="横向流程图"><a href="#横向流程图" class="headerlink" title="横向流程图"></a>横向流程图</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-graph LR
-	A[方形] --> B(圆角)
-    B --> C&#123;条件a&#125;
-    C -->|a=1| D[结果1]
-    C -->|a=2| E[结果2]
-    F[横向流程图]
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="命令行程序BAT"><a href="#命令行程序BAT" class="headerlink" title="命令行程序BAT"></a>命令行程序BAT</h2><p>是一种基于DOS命令的编程方式，作为批处理操作非常方便，文件扩展名通常为.bat，因此也可以称为BAT编程。</p>
+<h3 id="开机启动常用办公软件"><a href="#开机启动常用办公软件" class="headerlink" title="开机启动常用办公软件"></a>开机启动常用办公软件</h3><p>参见我的CSDN文章  《办公软件批量启动程序》<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lab_3D/article/details/115487682?spm=1001.2014.3001.5501">https://blog.csdn.net/lab_3D/article/details/115487682?spm=1001.2014.3001.5501</a></p>
+<h3 id="批量对文件进行重命名"><a href="#批量对文件进行重命名" class="headerlink" title="批量对文件进行重命名"></a>批量对文件进行重命名</h3><p>亲测有效！</p>
+<ol>
+<li>新建记事本文件.txt;</li>
+<li>复制以下全部代码，保存文件；</li>
+<li>将文件名改为“批量重命名-替换文件或者文件夹的字符串.bat”；</li>
+<li>把此文件拷贝到需要重命名的文件夹下（建议先备份原始文件，防止误操作造成丢失）；</li>
+<li>双击运行，根据提示输入相应的名字；</li>
+<li>完成！</li>
+</ol>
+<pre class="line-numbers language-Batch" data-language="Batch"><code class="language-Batch">@echo off
+:menu
+set yn&#x3D;Q
+cls
+echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo.
+echo 当前目录: %~dp0
+echo.
+echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo.
+echo 【R】文件名字符替换
+echo 【X】文件名字符截取后添加
+echo 【Q】退出
+echo.
+echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph LR
-	A[方形] --&gt; B(圆角)
-    B --&gt; C&#123;条件a&#125;
-    C --&gt;|a&#x3D;1| D[结果1]
-    C --&gt;|a&#x3D;2| E[结果2]
-    F[横向流程图]
-​&#96;&#96;&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+set &#x2F;P yn&#x3D;请选择：
+if &#x2F;i %yn%&#x3D;&#x3D;R goto goRen
+if &#x2F;i %yn%&#x3D;&#x3D;X goto goAdd
+if &#x2F;i %yn%&#x3D;&#x3D;Q goto goEnd
+exit
+:goRen
+echo 如匹配 [H][01].sc.[pop].tv 输入格式： [?][??].sc.[*].tv
+echo 如匹配 [H][01].sc.[pop].tv 输入格式： [H][??].sc.[pop].tv
+echo ? 代表匹配单个字符 * 代表匹配多个字符
+set &#x2F;p n&#x3D;匹配格式:
+set &#x2F;p o&#x3D;需要替换的字符:
+set &#x2F;p t&#x3D;把%o%替换为:
+setlocal enabledelayedexpansion 
+for %%i in (&quot;%n%&quot;) do (
+    set old&#x3D;%%i
+    set &quot;new&#x3D;!old:%o%&#x3D;%t%!&quot;
+    echo !old! ^&gt; !new!
+)
+endlocal
 
-<h2 id="纵向流程图"><a href="#纵向流程图" class="headerlink" title="纵向流程图"></a>纵向流程图</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-graph TD
-	A[方形] --> B(圆角)
-    B --> C&#123;条件a&#125;
-    C -->|a=1| D[结果1]
-    C -->|a=2| E[结果2]
-    F[竖向流程图]
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+set &#x2F;p yn&#x3D;确认 y:
+if &#x2F;i not %yn%&#x3D;&#x3D;y goto menu
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph TD
-	A[方形] --&gt; B(圆角)
-    B --&gt; C&#123;条件a&#125;
-    C --&gt;|a&#x3D;1| D[结果1]
-    C --&gt;|a&#x3D;2| E[结果2]
-    F[竖向流程图]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+setlocal enabledelayedexpansion 
+for %%i in (&quot;%n%&quot;) do (
+    set old&#x3D;%%i
+    set &quot;new&#x3D;!old:%o%&#x3D;%t%!&quot;
+    ren &quot;!old!&quot; &quot;!new!&quot;
+)
+endlocal
 
-<h2 id="标准流程图"><a href="#标准流程图" class="headerlink" title="标准流程图"></a>标准流程图</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-flowchat
-    st=>start: 开始框
-    op=>operation: 处理框
-    cond=>condition: 判断框(是或否?)
-    sub1=>subroutine: 子流程
-    io=>inputoutput: 输入输出框
-    e=>end: 结束框
-    st->op->cond
-    cond(yes)->io->e
-    cond(no)->sub1(right)->op
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+goto menu
 
-<pre class="line-numbers language-flow" data-language="flow"><code class="language-flow">st<span class="token operator">=></span>start<span class="token operator">:</span> 开始框
-op<span class="token operator">=></span>operation<span class="token operator">:</span> 处理框
-cond<span class="token operator">=></span>condition<span class="token operator">:</span> <span class="token function">判断框</span><span class="token punctuation">(</span>是或否<span class="token operator">?</span><span class="token punctuation">)</span>
-sub1<span class="token operator">=></span>subroutine<span class="token operator">:</span> 子流程
-io<span class="token operator">=></span>inputoutput<span class="token operator">:</span> 输入输出框
-e<span class="token operator">=></span>end<span class="token operator">:</span> 结束框
-st<span class="token operator">-</span><span class="token operator">></span>op<span class="token operator">-</span><span class="token operator">></span>cond
-<span class="token function">cond</span><span class="token punctuation">(</span>yes<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>io<span class="token operator">-</span><span class="token operator">></span>e
-<span class="token function">cond</span><span class="token punctuation">(</span>no<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">sub1</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>op<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="标准流程图（横向）"><a href="#标准流程图（横向）" class="headerlink" title="标准流程图（横向）"></a>标准流程图（横向）</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-flowchat
-    st=>start: 开始框
-    op=>operation: 处理框
-    cond=>condition: 判断框(是或否?)
-    sub1=>subroutine: 子流程
-    io=>inputoutput: 输入输出框
-    e=>end: 结束框
-    st(right)->op->cond
-    cond(yes)->io->e
-    cond(no)->sub1(right)->op
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+:goAdd
+echo 输入文件名匹配格式 如查找 [H][01].sc.[p o p].tv 输入 [?][??].sc.[*].tv
+set &#x2F;p n&#x3D;匹配格式:
+set &#x2F;p x&#x3D;从文件名开始处截取的数量:
+set &#x2F;p a&#x3D;截取之后添加的字符:
+setlocal enabledelayedexpansion 
+for %%i in (&quot;%n%&quot;) do (
+    set old&#x3D;%%i
+    set &quot;new&#x3D;!old:~0,%x%!%a%&quot;
+    echo !old! ^&gt; !new!
+)
+endlocal
 
-<pre class="line-numbers language-flow" data-language="flow"><code class="language-flow">st<span class="token operator">=></span>start<span class="token operator">:</span> 开始框
-op<span class="token operator">=></span>operation<span class="token operator">:</span> 处理框
-cond<span class="token operator">=></span>condition<span class="token operator">:</span> <span class="token function">判断框</span><span class="token punctuation">(</span>是或否<span class="token operator">?</span><span class="token punctuation">)</span>
-sub1<span class="token operator">=></span>subroutine<span class="token operator">:</span> 子流程
-io<span class="token operator">=></span>inputoutput<span class="token operator">:</span> 输入输出框
-e<span class="token operator">=></span>end<span class="token operator">:</span> 结束框
-<span class="token function">st</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>op<span class="token operator">-</span><span class="token operator">></span>cond
-<span class="token function">cond</span><span class="token punctuation">(</span>yes<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">io</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>e
-<span class="token function">cond</span><span class="token punctuation">(</span>no<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">sub1</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>op<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+set &#x2F;p yn&#x3D;确认 y:
+if &#x2F;i not %yn%&#x3D;&#x3D;y goto menu
 
-<h2 id="UML时序图"><a href="#UML时序图" class="headerlink" title="UML时序图"></a>UML时序图</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-sequenceDiagram
-    对象A->>对象B: 对象B你好吗?（请求）
-    Note right of 对象B: 对象B的描述
-    Note left of 对象A: 对象A的描述(提示)
-    对象B-->>对象A: 我很好(响应)
-    对象A->>对象B: 你真的好吗？
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+setlocal enabledelayedexpansion 
+for %%i in (&quot;%n%&quot;) do (
+    set old&#x3D;%%i
+    set &quot;new&#x3D;!old:~0,%x%!%a%&quot;
+   ren &quot;!old!&quot; &quot;!new!&quot;
+)
+endlocal
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">sequenceDiagram
-    对象A-&gt;&gt;对象B: 对象B你好吗?（请求）
-    Note right of 对象B: 对象B的描述
-    Note left of 对象A: 对象A的描述(提示)
-    对象B--&gt;&gt;对象A: 我很好(响应)
-    对象A-&gt;&gt;对象B: 你真的好吗？<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+goto menu
 
-<h2 id="UML时序图-复杂样例"><a href="#UML时序图-复杂样例" class="headerlink" title="UML时序图(复杂样例)"></a>UML时序图(复杂样例)</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-sequenceDiagram
-    Title: 标题：复杂使用
-    对象A->>对象B: 对象B你好吗?（请求）
-    Note right of 对象B: 对象B的描述
-    Note left of 对象A: 对象A的描述(提示)
-    对象B-->>对象A: 我很好(响应)
-    对象B->>小三: 你好吗
-    小三-->>对象A: 对象B找我了
-    对象A->>对象B: 你真的好吗？
-    Note over 小三,对象B: 我们是朋友
-    participant C
-    Note right of C: 没人陪我玩
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">sequenceDiagram
-    Title: 标题：复杂使用
-    对象A-&gt;&gt;对象B: 对象B你好吗?（请求）
-    Note right of 对象B: 对象B的描述
-    Note left of 对象A: 对象A的描述(提示)
-    对象B--&gt;&gt;对象A: 我很好(响应)
-    对象B-&gt;&gt;小三: 你好吗
-    小三--&gt;&gt;对象A: 对象B找我了
-    对象A-&gt;&gt;对象B: 你真的好吗？
-    Note over 小三,对象B: 我们是朋友
-    participant C
-    Note right of C: 没人陪我玩<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="UML标准时序图"><a href="#UML标准时序图" class="headerlink" title="UML标准时序图"></a>UML标准时序图</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-    %% 时序图例子,-> 直线，-->虚线，->>实线箭头
-  sequenceDiagram
-    participant 张三
-    participant 李四
-    张三->王五: 王五你好吗？
-    loop 健康检查
-        王五->王五: 与疾病战斗
-    end
-    Note right of 王五: 合理 食物 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>看医生...
-    李四-->>张三: 很好!
-    王五->李四: 你怎么样?
-    李四-->王五: 很好!
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">  %% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
-sequenceDiagram
-  participant 张三
-  participant 李四
-  张三-&gt;王五: 王五你好吗？
-  loop 健康检查
-      王五-&gt;王五: 与疾病战斗
-  end
-  Note right of 王五: 合理 食物 &lt;br&#x2F;&gt;看医生...
-  李四--&gt;&gt;张三: 很好!
-  王五-&gt;李四: 你怎么样?
-  李四--&gt;王五: 很好!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">​```mermaid
-    %% 语法示例
-        gantt
-        dateFormat  YYYY-MM-DD
-        title 软件开发甘特图
-
-        section 设计
-        需求                      :done,    des1, 2014-01-06,2014-01-08
-        原型                      :active,  des2, 2014-01-09, 3d
-        UI设计                     :         des3, after des2, 5d
-    	未来任务                     :         des4, after des3, 5d
-
-        section 开发
-        学习准备理解需求                      :crit, done, 2014-01-06,24h
-        设计框架                             :crit, done, after des2, 2d
-        开发                                 :crit, active, 3d
-        未来任务                              :crit, 5d
-        耍                                   :2d
-
-        section 测试
-        功能测试                              :active, a1, after des3, 3d
-        压力测试                               :after a1  , 20h
-        测试报告                               : 48h
-​```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">%% 语法示例
-    gantt
-    dateFormat  YYYY-MM-DD
-    title 软件开发甘特图
-
-    section 设计
-    需求                      :done,    des1, 2014-01-06,2014-01-08
-    原型                      :active,  des2, 2014-01-09, 3d
-    UI设计                     :         des3, after des2, 5d
-	未来任务                     :         des4, after des3, 5d
-
-    section 开发
-    学习准备理解需求                      :crit, done, 2014-01-06,24h
-    设计框架                             :crit, done, after des2, 2d
-    开发                                 :crit, active, 3d
-    未来任务                              :crit, 5d
-    耍                                   :2d
-
-    section 测试
-    功能测试                              :active, a1, after des3, 3d
-    压力测试                               :after a1  , 20h
-    测试报告                               : 48h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+:goEnd
+exit
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 
 
-
-
+<p>转自 CSDN [mycoloraa]</p>
+<p>文章地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mycoloraa/article/details/102694269">https://blog.csdn.net/mycoloraa/article/details/102694269</a></p>
 <hr>
-<p><small>（最后修订日期：2021-04-22）</small></p>
+<p><small>（最后修订日期：2021-04-26）</small></p>
 
                 
             </div>
@@ -628,7 +519,7 @@ sequenceDiagram
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://3bstudio.top/2021/04/24/%E5%9F%BA%E4%BA%8Etypora%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E3%80%81%E7%94%98%E7%89%B9%E5%9B%BE%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/">https://3bstudio.top/2021/04/24/%E5%9F%BA%E4%BA%8Etypora%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E3%80%81%E7%94%98%E7%89%B9%E5%9B%BE%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/</a>
+                    <a href="https://3bstudio.top/2021/03/22/%E4%B8%80%E4%BA%9BBat%E6%96%87%E4%BB%B6%E6%89%B9%E5%A4%84%E7%90%86%E5%B0%8F%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/">https://3bstudio.top/2021/03/22/%E4%B8%80%E4%BA%9BBat%E6%96%87%E4%BB%B6%E6%89%B9%E5%A4%84%E7%90%86%E5%B0%8F%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -666,8 +557,8 @@ sequenceDiagram
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/typora/">
-                                    <span class="chip bg-color">typora</span>
+                                <a href="/tags/bat/">
+                                    <span class="chip bg-color">bat</span>
                                 </a>
                             
                         </div>
@@ -839,18 +730,17 @@ sequenceDiagram
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/24/%E5%9F%BA%E4%BA%8Etypora%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E3%80%81%E7%94%98%E7%89%B9%E5%9B%BE%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/">
+                <a href="/2021/03/28/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="typora的流程图、时序图、甘特图 示例">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="微信公众号文章汇总">
                         
-                        <span class="card-title">typora的流程图、时序图、甘特图 示例</span>
+                        <span class="card-title">微信公众号文章汇总</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -860,27 +750,30 @@ sequenceDiagram
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%94%BB%E5%9B%BE/" class="post-category">
-                                    程序画图
+                            <a href="/categories/%E5%85%AC%E4%BC%97%E5%8F%B7/" class="post-category">
+                                    公众号
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/typora/">
-                        <span class="chip bg-color">typora</span>
+                    <a href="/tags/Bladed/">
+                        <span class="chip bg-color">Bladed</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A3%8E%E7%94%B5/">
+                        <span class="chip bg-color">风电</span>
                     </a>
                     
                 </div>
@@ -894,13 +787,13 @@ sequenceDiagram
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/23/%E9%AA%91%E8%BD%A6%E8%B7%AF%E4%B8%8A%E6%80%9D%E8%80%83%E4%B8%80%E5%88%99/">
+                <a href="/2021/03/20/tdms%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AEmatlab%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="骑车路上思考一则">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="扩展名TDMS格式数据文件matlab处理方法">
                         
-                        <span class="card-title">骑车路上思考一则</span>
+                        <span class="card-title">扩展名TDMS格式数据文件matlab处理方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -911,14 +804,14 @@ sequenceDiagram
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
-                                    随笔
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" class="post-category">
+                                    数据处理
                                 </a>
                             
                             
@@ -928,8 +821,12 @@ sequenceDiagram
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%80%9D%E8%80%83/">
-                        <span class="chip bg-color">思考</span>
+                    <a href="/tags/matlab/">
+                        <span class="chip bg-color">matlab</span>
+                    </a>
+                    
+                    <a href="/tags/tdms/">
+                        <span class="chip bg-color">tdms</span>
                     </a>
                     
                 </div>
